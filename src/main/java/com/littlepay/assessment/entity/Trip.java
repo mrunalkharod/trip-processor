@@ -10,7 +10,6 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "trip", indexes = {
-        @Index(name = "ix_trip_card", columnList = "company_id, pan, started"),
         @Index(name = "ix_trip_started", columnList = "started")})
 public class Trip {
 

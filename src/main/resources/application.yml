@@ -14,11 +14,6 @@ spring:
     show-sql: false
     open-in-view: false
 
-  data:
-    redis:
-      host: localhost
-      port: 6379
-
   servlet:
     multipart:
       max-file-size: 50MB
@@ -54,7 +49,6 @@ app:
     consumer-group: tap-trips
     consumer-name: ${HOSTNAME:tap-trips-1}
   processing:
-    hold-window: PT3H
     cards-per-chunk: 1000
 
 # springdoc-openapi (Swagger) configuration
