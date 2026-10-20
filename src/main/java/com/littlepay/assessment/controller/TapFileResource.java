@@ -36,7 +36,7 @@ public class TapFileResource {
     }
 
     @Operation(summary = "Upload a taps.csv",
-            description = "Saves the file as UPLOADED. Run the import-taps command to insert the taps to DB. ")
+            description = "Saves the file as UPLOADED. Run the import-taps command to insert the taps to Database. ")
     @ApiResponses({
             @ApiResponse(responseCode = "202", description = "File saved, waiting for import-taps"),
             @ApiResponse(responseCode = "400", description = "The file is empty")
@@ -53,7 +53,7 @@ public class TapFileResource {
     }
 
     @Operation(summary = "Get an uploaded file's status",
-            description = "UPLOADED, PROCESSING, PROCESSED or FAILED, with the number of taps stored and bad rows.")
+            description = "UPLOADED, PROCESSING, PROCESSED or FAILED, with the number of taps stored and number of bad rows.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "File found"),
             @ApiResponse(responseCode = "404", description = "No file with this ID")

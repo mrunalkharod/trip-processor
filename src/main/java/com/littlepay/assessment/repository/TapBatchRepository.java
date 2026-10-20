@@ -27,7 +27,7 @@ public class TapBatchRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    /** @return the number of taps inserted (taps already stored are not counted) */
+    /** @return the number of taps inserted  */
     public int insertNew(List<Tap> taps) {
         if (taps.isEmpty()) {
             return 0;

@@ -16,7 +16,7 @@ public class OpenApiConfig {
     public OpenAPI openApi() {
         return new OpenAPI()
                 .info(new Info().title("Trip Processor API").version("1.0")
-                        .description("Matches card taps into trips and charges them by the bus's stop fares."))
+                        .description("Processes card taps to generate trip file."))
                 .components(new Components().addSecuritySchemes(SECURITY_SCHEME_NAME,
                         new SecurityScheme()
                                 .name(SECURITY_SCHEME_NAME)

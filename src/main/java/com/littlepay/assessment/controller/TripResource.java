@@ -21,7 +21,7 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api/v1")
-@Tag(name = "Trips", description = "Download trips.csv (USER or ADMIN). PANs are masked.")
+@Tag(name = "Trips", description = "Download trips.csv")
 @SecurityRequirement(name = "basicAuth")
 public class TripResource {
 

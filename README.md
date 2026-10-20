@@ -12,6 +12,8 @@ A Spring Boot app that processes card taps and generates trip file.
 2. [Running and testing the solution](#2-running-and-testing-the-solution)
 3. [Configuration](#3-configuration)
 4. [Assumptions & Limitations](#4-assumptions-and-limitations)
+5. [How to add new rule](#5-how-to-add-new-rule)
+6. [Run automated tests](#6-run-tests)
 ---
 
 ## 1. Prerequisites
@@ -74,8 +76,25 @@ Database connection details must match `compose.yaml`.
 
 ## 4. Assumptions and limitations
 
+- **Fare Calculation**
+  Every fare follows one formula:
+```
+fare = |v(from) - v(to)| + base fare
+```
+The **base fare** is the same for the whole application. Each stop has a
+**distance value** `v` which gets added through the database seeder. 
+Example :
+
+| Stop | v | Fares |
+|---|---|---|
+| Stop1 | 0.00 | Stop1-Stop2: 1.80 + 1.45 = $3.25 |
+| Stop2 | 1.80 | Stop2-Stop3: 4.05 + 1.45 = $5.50 |
+| Stop3 | 5.85 | Stop1-Stop3: 5.85 + 1.45 = $7.30 |
+
+
+- **TESTS** I didn't get time to write integration test and I have only added test for the critical part to save time.
 - Passengers must tap on and off the same bus. Each bus always serves the same stops.
-- Tap IDs are globally unique.
+- Tap IDs are unique.
 - You will be running the commands in sequence.
 - If a user miss the tap off in the morning and board the bus without tap on in the evening and just tap off then 
   Morning trip will be counted as INCOMPLETE and the evening tap off will be marked as orphan tap off.
@@ -121,4 +140,8 @@ public class NewRule implements TripRule {
         // your logic
     }
 }
+```
+## 6. Run tests
+```bash
+mvn test
 ```

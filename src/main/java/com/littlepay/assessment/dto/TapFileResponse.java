@@ -23,7 +23,7 @@ public record TapFileResponse(
         @Schema(description = "Rows that could not be parsed", example = "0")
         int badRows,
 
-        @Schema(description = "Why the file failed. It will be empty for successful run", nullable = true)
+        @Schema(description = "Error message. It will be empty for successful run", nullable = true)
         String errorMessage,
 
         @Schema(description = "File upload time")
